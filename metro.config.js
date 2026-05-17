@@ -1,5 +1,7 @@
-const { getDefaultConfig } = require('expo/metro-config');
-const path = require('path');
+const configPath = 'expo/metro-config';
+const { getDefaultConfig } = require(configPath);
+const pathModule = 'path';
+const path = require(pathModule);
 
 const config = getDefaultConfig(__dirname);
 

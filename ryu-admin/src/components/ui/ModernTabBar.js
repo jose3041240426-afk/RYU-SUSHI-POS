@@ -124,12 +124,13 @@ const TabItem = ({ label, isFocused, onPress, isDarkMode, routeName }) => {
     const bebidasIcon = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path fill='${color}' d='M6 8H3L2 2h5M1 1V0h3v2H3V1'/></svg>`;
     const extrasIcon = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><g fill='none' fill-rule='evenodd'><path d='m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z'/><path fill='${color}' d='M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2m4.5 8.5a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3m-4.5 0a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3m-4.5 0a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3'/></g></svg>`;
     const historialIcon = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='${color}' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2M9 17H7v-7h2zm4 0h-2V7h2zm4 0h-2v-4h2z'/></svg>`;
+    const alitasIcon = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='${color}' d='M12.5 2C10.57 2 9 3.57 9 5.5c0 .6.15 1.16.41 1.66L3.25 13.32c-.98.98-.98 2.56 0 3.54s2.56.98 3.54 0l6.16-6.16c.5.26 1.06.41 1.66.41c1.93 0 3.5-1.57 3.5-3.5C18.1 4.7 15.86 2 12.5 2zM6.5 17c-.55 0-1-.45-1-1s.45-1 1-1s1 .45 1 1s-.45 1-1 1zm8.25-9.75c-.41 0-.75-.34-.75-.75s.34-.75.75-.75s.75.34.75.75s-.34.75-.75.75z'/></svg>`;
 
     switch (routeName) {
       case 'Sushi':
         return <SvgXml xml={sushiIcon} width={size} height={size} />;
       case 'Alitas':
-        return <Image source={require('../../assets/images/Alitasicon.png')} style={{ width: size, height: size, tintColor: color }} />;
+        return <SvgXml xml={alitasIcon} width={size} height={size} />;
       case 'Bebidas':
         return <SvgXml xml={bebidasIcon} width={size} height={size} />;
       case 'Extras':
