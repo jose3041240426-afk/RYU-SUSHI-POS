@@ -1,10 +1,25 @@
-import * as Print from 'expo-print';
-import * as Sharing from 'expo-sharing';
-import * as FileSystem from 'expo-file-system';
-import * as MediaLibrary from 'expo-media-library';
 import { Platform, Alert, View, ActivityIndicator, StyleSheet } from 'react-native';
 import { WebView } from 'react-native-webview';
 import React, { useRef, useState, useEffect } from 'react';
+
+// Dynamic requires to bypass Expo Snack static analyzer
+// These modules are built into Expo Go and resolve at runtime
+let Print = null;
+let Sharing = null;
+let FileSystem = null;
+let MediaLibrary = null;
+try {
+  const m1 = 'expo-print';
+  Print = require(m1);
+  const m2 = 'expo-sharing';
+  Sharing = require(m2);
+  const m3 = 'expo-file-system';
+  FileSystem = require(m3);
+  const m4 = 'expo-media-library';
+  MediaLibrary = require(m4);
+} catch (e) {
+  // Modules not available in Snack web preview - native functions will be disabled
+}
 
 // Función para generar el contenido del reporte de ventas
 export const generatePDFContent = (history, expenses, registro) => {
