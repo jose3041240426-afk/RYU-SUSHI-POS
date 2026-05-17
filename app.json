@@ -1,0 +1,46 @@
+{
+  "expo": {
+    "name": "Ryu Sushi",
+    "slug": "snack-1472e0f7-dbd9-4ffb-805b-b9fa205f662b",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/LOGO.jpg",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/LOGO.jpg",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/LOGO.jpg",
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "android.permission.BLUETOOTH",
+        "android.permission.BLUETOOTH_ADMIN",
+        "android.permission.BLUETOOTH_CONNECT",
+        "android.permission.BLUETOOTH_SCAN",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION"
+      ],
+      "package": "com.manuelgs.snack1472e0f7dbd94ffb805bb9fa205f662b"
+    },
+    "web": {
+      "favicon": "./assets/LOGO.jpg"
+    },
+    "sdkVersion": "54.0.0",
+    "plugins": [
+      "expo-font"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "be2eff83-04c5-45fa-8dfb-24d64169e036"
+      }
+    }
+  }
+}
