@@ -1,4 +1,5 @@
-import { BLEPrinter } from 'react-native-thermal-receipt-printer';
+let BLEPrinter = null;
+try { const m = 'react-native-thermal-receipt-printer'; BLEPrinter = require(m).BLEPrinter; } catch(e) {}
 import { Alert } from 'react-native';
 
 class PrinterService {

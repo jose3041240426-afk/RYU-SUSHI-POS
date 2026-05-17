@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Alert, Platform } from 'react-native';
-import * as Print from 'expo-print';
-import ThermalPrinterModule from 'react-native-thermal-printer';
+let Print = null;
+let ThermalPrinterModule = null;
+try { const m1 = 'expo-print'; Print = require(m1); } catch(e) {}
+try { const m2 = 'react-native-thermal-printer'; ThermalPrinterModule = require(m2).default; } catch(e) {}
 import { generateTicketHTML, calculateOrderTotals } from '../utils/pdfGenerator';
 
 const useBluetoothPrinter = () => {

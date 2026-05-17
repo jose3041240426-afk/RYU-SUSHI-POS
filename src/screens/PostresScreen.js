@@ -15,7 +15,8 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Ionicons as Icon } from '@expo/vector-icons';
-import * as ImagePicker from 'expo-image-picker';
+let ImagePicker = null;
+try { const m = 'expo-image-picker'; ImagePicker = require(m); } catch(e) {}
 import { supabase } from '../services/supabase';
 
 const screenWidth = Dimensions.get('window').width;

@@ -16,7 +16,8 @@ import {
   Dimensions
 } from 'react-native';
 import { Ionicons as Icon } from '@expo/vector-icons';
-import { LinearGradient } from 'expo-linear-gradient';
+let LinearGradient = null;
+try { const m = 'expo-linear-gradient'; const mod = require(m); LinearGradient = mod.LinearGradient; } catch(e) {}
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Detectar si es web
