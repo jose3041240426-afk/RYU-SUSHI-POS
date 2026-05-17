@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Text, View, FlatList, TouchableOpacity, ScrollView, StyleSheet, Dimensions, ImageBackground, Platform } from 'react-native';
 
 const screenWidth = Dimensions.get('window').width;
@@ -18,35 +18,35 @@ const drinksItems = [
     name: 'Coca-Cola 500ml',
     price: 20,
     type: 'Refresco',
-    image: null
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000625/coca_jft6u2.jpg' }
   },
   {
     id: '2',
     name: 'Jugo del Valle 237ml',
     price: 10,
     type: 'Jugo',
-    image: null
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000629/vall_ybdgqz.jpg' }
   },
   {
     id: '3',
     name: 'Sprite 500ml (Vidrio)',
     price: 25,
     type: 'Refresco',
-    image: null
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000629/sprite_wvbeka.jpg' }
   },
   {
     id: '4',
     name: 'Agua de Jamaica',
     price: 15,
     type: 'Agua Fresca',
-    image: null
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000626/Jamaica_fwc7jp.jpg' }
   },
   {
     id: '5',
     name: 'Agua de Horchata',
     price: 15,
     type: 'Agua Fresca',
-    image: null
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000625/horchata_qd33x5.webp' }
   }
 ];
 

@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Text, View, FlatList, TouchableOpacity, ScrollView, StyleSheet, Dimensions, ImageBackground, Modal, Platform } from 'react-native';
 
 
@@ -10,7 +10,7 @@ const wingsItems = [
     price: 100,
     type: 'Alitas',
     subtype: 'completa',
-    image: null,
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000619/adobadas_lpnb7y.jpg' },
     flavor: 'Natural',
     description: 'Alitas Naturales - Orden completa'
   },
@@ -20,19 +20,19 @@ const wingsItems = [
     price: 105,
     type: 'Alitas',
     subtype: 'completa',
-    image: null,
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000620/alitas_xeqrny.jpg' },
     flavor: 'BBQ',
     description: 'Alitas BBQ - Orden completa'
   },
   {
     id: '3',
-    name: 'Wings BÃºfalo',
+    name: 'Wings Búfalo',
     price: 105,
     type: 'Alitas',
     subtype: 'completa',
-    image: null,
-    flavor: 'BÃºfalo',
-    description: 'Alitas BÃºfalo - Orden completa'
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000622/Bufalo_nlrty6.jpg' },
+    flavor: 'Búfalo',
+    description: 'Alitas Búfalo - Orden completa'
   },
   {
     id: '4',
@@ -40,7 +40,7 @@ const wingsItems = [
     price: 110,
     type: 'Alitas',
     subtype: 'completa',
-    image: null,
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000620/alitas_xeqrny.jpg' },
     flavor: 'Mango Habanero',
     description: 'Alitas Mango Habanero - Orden completa'
   },
@@ -50,9 +50,9 @@ const wingsItems = [
     price: 120,
     type: 'Alitas',
     subtype: 'completa',
-    image: null,
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000620/alitas_xeqrny.jpg' },
     flavor: 'Infierno',
-    description: 'Alitas Infierno - Orden completa (Â¡MUY PICANTE!)'
+    description: 'Alitas Infierno - Orden completa (¡MUY PICANTE!)'
   },
 
 
@@ -63,7 +63,7 @@ const wingsItems = [
     price: 130,
     type: 'Boneless',
     subtype: 'completa',
-    image: null,
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000620/boneless-adobados_buobp8.jpg' },
     flavor: 'Natural',
     description: 'Boneless Natural - Orden completa'
   },
@@ -73,19 +73,19 @@ const wingsItems = [
     price: 135,
     type: 'Boneless',
     subtype: 'completa',
-    image: null,
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000621/Boneless-BBQ_tmo1n0.jpg' },
     flavor: 'BBQ',
     description: 'Boneless BBQ - Orden completa'
   },
   {
     id: '11',
-    name: 'Boneless BÃºfalo',
+    name: 'Boneless Búfalo',
     price: 135,
     type: 'Boneless',
     subtype: 'completa',
-    image: null,
-    flavor: 'BÃºfalo',
-    description: 'Boneless BÃºfalo - Orden completa'
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000624/Boneless-Bufalo_zcbclj.jpg' },
+    flavor: 'Búfalo',
+    description: 'Boneless Búfalo - Orden completa'
   },
   {
     id: '12',
@@ -93,7 +93,7 @@ const wingsItems = [
     price: 140,
     type: 'Boneless',
     subtype: 'completa',
-    image: null,
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000622/Boneless-Mango_fmfkqj.jpg' },
     flavor: 'Mango Habanero',
     description: 'Boneless Mango Habanero - Orden completa'
   },
@@ -103,9 +103,9 @@ const wingsItems = [
     price: 150,
     type: 'Boneless',
     subtype: 'completa',
-    image: null,
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000620/boneless-adobados_buobp8.jpg' },
     flavor: 'Infierno',
-    description: 'Boneless Infierno - Orden completa (Â¡MUY PICANTE!)'
+    description: 'Boneless Infierno - Orden completa (¡MUY PICANTE!)'
   },
 
 
@@ -116,7 +116,7 @@ const wingsItems = [
     price: 250,
     type: 'Boneless',
     subtype: 'kilo',
-    image: null,
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000620/boneless-adobados_buobp8.jpg' },
     flavor: 'Natural',
     description: 'Boneless Natural - Por kilo'
   },
@@ -126,19 +126,19 @@ const wingsItems = [
     price: 250,
     type: 'Boneless',
     subtype: 'kilo',
-    image: null,
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000621/Boneless-BBQ_tmo1n0.jpg' },
     flavor: 'BBQ',
     description: 'Boneless BBQ - Por kilo'
   },
   {
     id: '19',
-    name: 'Kilo Boneless BÃºfalo',
+    name: 'Kilo Boneless Búfalo',
     price: 250,
     type: 'Boneless',
     subtype: 'kilo',
-    image: null,
-    flavor: 'BÃºfalo',
-    description: 'Boneless BÃºfalo - Por kilo'
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000624/Boneless-Bufalo_zcbclj.jpg' },
+    flavor: 'Búfalo',
+    description: 'Boneless Búfalo - Por kilo'
   },
   {
     id: '20',
@@ -146,7 +146,7 @@ const wingsItems = [
     price: 250,
     type: 'Boneless',
     subtype: 'kilo',
-    image: null,
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000622/Boneless-Mango_fmfkqj.jpg' },
     flavor: 'Mango Habanero',
     description: 'Boneless Mango Habanero - Por kilo'
   },
@@ -156,9 +156,9 @@ const wingsItems = [
     price: 250,
     type: 'Boneless',
     subtype: 'kilo',
-    image: null,
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000620/boneless-adobados_buobp8.jpg' },
     flavor: 'Infierno',
-    description: 'Boneless Infierno - Por kilo (Â¡MUY PICANTE!)'
+    description: 'Boneless Infierno - Por kilo (¡MUY PICANTE!)'
   },
 
   // Kilos de Alitas - $200
@@ -168,7 +168,7 @@ const wingsItems = [
     price: 200,
     type: 'Alitas',
     subtype: 'kilo',
-    image: null,
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000619/adobadas_lpnb7y.jpg' },
     flavor: 'Natural',
     description: 'Alitas Naturales - Por kilo'
   },
@@ -178,19 +178,19 @@ const wingsItems = [
     price: 200,
     type: 'Alitas',
     subtype: 'kilo',
-    image: null,
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000620/alitas_xeqrny.jpg' },
     flavor: 'BBQ',
     description: 'Alitas BBQ - Por kilo'
   },
   {
     id: '23',
-    name: 'Kilo Alitas BÃºfalo',
+    name: 'Kilo Alitas Búfalo',
     price: 200,
     type: 'Alitas',
     subtype: 'kilo',
-    image: null,
-    flavor: 'BÃºfalo',
-    description: 'Alitas BÃºfalo - Por kilo'
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000622/Bufalo_nlrty6.jpg' },
+    flavor: 'Búfalo',
+    description: 'Alitas Búfalo - Por kilo'
   },
   {
     id: '24',
@@ -198,7 +198,7 @@ const wingsItems = [
     price: 200,
     type: 'Alitas',
     subtype: 'kilo',
-    image: null,
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000620/alitas_xeqrny.jpg' },
     flavor: 'Mango Habanero',
     description: 'Alitas Mango Habanero - Por kilo'
   },
@@ -208,9 +208,9 @@ const wingsItems = [
     price: 200,
     type: 'Alitas',
     subtype: 'kilo',
-    image: null,
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000620/alitas_xeqrny.jpg' },
     flavor: 'Infierno',
-    description: 'Alitas Infierno - Por kilo (Â¡MUY PICANTE!)'
+    description: 'Alitas Infierno - Por kilo (¡MUY PICANTE!)'
   },
 ];
 

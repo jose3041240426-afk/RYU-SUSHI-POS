@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import {
   Text,
   View,
@@ -27,24 +27,24 @@ const itemHeight = itemSize * 0.75; // Un poco mÃ¡s altos para que se vean mej
 const rollOptions = ['Empanizado', 'Natural', 'Alga fuera', 'Flamin'];
 
 const sushiItems = [
-  { id: '1', name: 'Torrelo', price: 100, ingredients: 'Torrelo: Queso crema, camarÃ³n y res', image: null },
-  { id: '2', name: 'Vaquero', price: 100, ingredients: 'Vaquero: Aguacate, res y pollo', image: null },
-  { id: '3', name: 'Mar y tierra', price: 100, ingredients: 'Mar y tierra: Aguacate, res y camarÃ³n', image: null },
-  { id: '4', name: 'Camaron', price: 100, ingredients: 'Camaron: Aguacate, queso crema y camarÃ³n', image: null },
-  { id: '5', name: 'Surimi', price: 100, ingredients: 'Surimi: Aguacate, queso crema y surimi', image: null },
-  { id: '6', name: 'CosteÃ±o', price: 100, ingredients: 'CosteÃ±o: Aguacate, queso crema, camarÃ³n y surimi', image: null },
-  { id: '7', name: 'Vegetariano', price: 95, ingredients: 'Vegetariano: Aguacate, queso crema y zanahoria', image: null },
-  { id: '8', name: 'Gallinazo', price: 100, ingredients: 'Gallinazo: Aguacate, queso crema y pollo', image: null },
-  { id: '9', name: 'Res', price: 100, ingredients: 'Res: Aguacate, queso crema y res', image: null },
-  { id: '10', name: 'Ryu burro', price: 105, ingredients: 'Ryu burro: Aguacate, queso crema, res, camarÃ³n y pollo', image: null },
-  { id: '11', name: 'Flamin', price: 105, ingredients: 'Flamin: Aguacate, queso crema, res y surimi', image: null },
-  { id: '12', name: 'Goliat', price: 110, ingredients: 'Goliat: Aguacate, queso crema, res, camarÃ³n, surimi y pollo', image: null },
-  { id: '13', name: 'Pastor', price: 100, ingredients: 'Pastor: Aguacate, queso crema y pastor', image: null },
+  { id: '1', name: 'Torrelo', price: 100, ingredients: 'Torrelo: Queso crema, camarón y res', image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000629/Sushi_koxcqm.jpg' } },
+  { id: '2', name: 'Vaquero', price: 100, ingredients: 'Vaquero: Aguacate, res y pollo', image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000629/Sushi_koxcqm.jpg' } },
+  { id: '3', name: 'Mar y tierra', price: 100, ingredients: 'Mar y tierra: Aguacate, res y camarón', image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000629/Sushi_koxcqm.jpg' } },
+  { id: '4', name: 'Camaron', price: 100, ingredients: 'Camaron: Aguacate, queso crema y camarón', image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000629/Sushi_koxcqm.jpg' } },
+  { id: '5', name: 'Surimi', price: 100, ingredients: 'Surimi: Aguacate, queso crema y surimi', image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000629/Sushi_koxcqm.jpg' } },
+  { id: '6', name: 'Costeño', price: 100, ingredients: 'Costeño: Aguacate, queso crema, camarón y surimi', image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000629/Sushi_koxcqm.jpg' } },
+  { id: '7', name: 'Vegetariano', price: 95, ingredients: 'Vegetariano: Aguacate, queso crema y zanahoria', image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000629/Sushi_koxcqm.jpg' } },
+  { id: '8', name: 'Gallinazo', price: 100, ingredients: 'Gallinazo: Aguacate, queso crema y pollo', image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000629/Sushi_koxcqm.jpg' } },
+  { id: '9', name: 'Res', price: 100, ingredients: 'Res: Aguacate, queso crema y res', image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000629/Sushi_koxcqm.jpg' } },
+  { id: '10', name: 'Ryu burro', price: 105, ingredients: 'Ryu burro: Aguacate, queso crema, res, camarón y pollo', image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000629/Sushi_koxcqm.jpg' } },
+  { id: '11', name: 'Flamin', price: 105, ingredients: 'Flamin: Aguacate, queso crema, res y surimi', image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000629/Sushi_koxcqm.jpg' } },
+  { id: '12', name: 'Goliat', price: 110, ingredients: 'Goliat: Aguacate, queso crema, res, camarón, surimi y pollo', image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000629/Sushi_koxcqm.jpg' } },
+  { id: '13', name: 'Pastor', price: 100, ingredients: 'Pastor: Aguacate, queso crema y pastor', image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000629/Sushi_koxcqm.jpg' } },
 ];
 
 const friesItems = [
-  { id: 'f1', name: 'Papas a la Francesa', price: 50, image: null },
-  { id: 'f2', name: 'Papas Gajo', price: 60, image: null },
+  { id: 'f1', name: 'Papas a la Francesa', price: 50, image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000627/papas_aidrfm.jpg' } },
+  { id: 'f2', name: 'Papas Gajo', price: 60, image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000626/papas-gajo_pcvzk9.jpg' } },
 ];
 
 const SushiCard = ({ item, width, height, onPress }) => {

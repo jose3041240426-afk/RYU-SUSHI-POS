@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { View, Animated, StyleSheet, Image, Dimensions, Platform } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
@@ -79,7 +79,7 @@ const SplashScreen = ({ navigation }) => {
       >
         <View style={styles.logoShadow} />
         <Image 
-          source={null} 
+          source={{ uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000563/LOGO_zek7to.jpg' }} 
           style={styles.logo}
           resizeMode="contain"
         />

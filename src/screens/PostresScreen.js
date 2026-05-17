@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Text,
   View,
@@ -52,7 +52,7 @@ const combosPredefinidos = [
     basePrice: 100,
     type: 'Combos',
     description: '200gr de BONELESS y 150gr de PAPAS A LA FRANCESA',
-    image: null,
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000627/postres_ojiv8d.jpg' },
     shortName: 'Combo 1',
     options: [
       { type: 'sabor-combinable', label: 'Sabor del Boneless (1 o 2 sabores)', key: 'sabor_boneless', options: saborOptions, maxSelections: 2 }
@@ -64,7 +64,7 @@ const combosPredefinidos = [
     basePrice: 130,
     type: 'Combo',
     description: '1 SUSHI y 150gr de PAPAS A LA FRANCESA',
-    image: null,
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000627/postres_ojiv8d.jpg' },
     shortName: 'Combo 2',
     options: [
       { type: 'rollo', label: 'Tipo de Rollo', key: 'tipo_rollo', options: rollOptions }
@@ -76,7 +76,7 @@ const combosPredefinidos = [
     basePrice: 100,
     type: 'Combo',
     description: '200gr de ALITAS y 150gr de PAPAS A LA FRANCESA',
-    image: null,
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000627/postres_ojiv8d.jpg' },
     shortName: 'Combo 3',
     options: [
       { type: 'sabor-combinable', label: 'Sabor de las Alitas (1 o 2 sabores)', key: 'sabor_alitas', options: saborOptions, maxSelections: 2 }
@@ -88,7 +88,7 @@ const combosPredefinidos = [
     basePrice: 140,
     type: 'Combo',
     description: '200gr de BONELESS y 200gr de ALITAS',
-    image: null,
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000627/postres_ojiv8d.jpg' },
     shortName: 'Combo 4',
     options: [
       {
@@ -107,7 +107,7 @@ const combosPredefinidos = [
     basePrice: 200,
     type: 'Combo',
     description: '200gr de ALITAS, 200gr de BONELESS y 1 SUSHI',
-    image: null,
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000627/postres_ojiv8d.jpg' },
     shortName: 'Combo 5',
     options: [
       {
@@ -127,7 +127,7 @@ const combosPredefinidos = [
     basePrice: 600,
     type: 'Combo',
     description: '3 ROLLOS DE SUSHI, 1 BONELESS, 1 ALITAS, 1 PAPAS Y UN REFRESCO',
-    image: null,
+    image: { uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000627/postres_ojiv8d.jpg' },
     shortName: 'Combo 6',
     options: [
       {
