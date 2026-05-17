@@ -1,11 +1,11 @@
 import React, { useRef, useEffect } from 'react';
 import { View, Dimensions } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import SushiScreen from '../assets/images/SushiScreen';
-import AlitasScreen from '../assets/images/AlitasScreen';
-import BebidasScreen from '../assets/images/BebidasScreen';
-import PostresScreen from '../assets/images/PostresScreen';
-import HistorialScreen from '../assets/images/HistorialScreen';
+import SushiScreen from './SushiScreen';
+import AlitasScreen from './AlitasScreen';
+import BebidasScreen from './BebidasScreen';
+import PostresScreen from './PostresScreen';
+import HistorialScreen from './HistorialScreen';
 
 const TopTab = createMaterialTopTabNavigator();
 

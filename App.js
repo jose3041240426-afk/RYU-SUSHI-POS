@@ -32,7 +32,7 @@ import {
   TextInput,
 } from 'react-native';
 import { SvgXml } from 'react-native-svg';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { Ionicons as Icon } from '@expo/vector-icons';
 import { supabase } from './src/services/supabase';
 import ModernTabBar from './src/components/ui/ModernTabBar';
 
@@ -1141,7 +1141,7 @@ function MainApp() {
                 }
                 style={{ marginLeft: 15 }}>
                 <Image
-                  source={require('./assets/LOGO.jpg')}
+                  source={{ uri: 'https://res.cloudinary.com/drr6gpcyy/image/upload/q_auto/f_auto/v1779000563/LOGO_zek7to.jpg' }}
                   style={{
                     width: 40,
                     height: 40,

@@ -15,16 +15,16 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Importar imágenes locales
-import tenedoresImage from '../assets/images/tenedor.png';
-import vasitosImage from '../assets/images/vaso.png';
-import charolasPlanasImage from '../assets/images/charolalisa.png';
-import charolas3DivisionesImage from '../assets/images/charola3.png';
-import guantesImage from '../assets/images/guante.png';
-import bolsasMakiImage from '../assets/images/Bolsamaki.png';
-import cheetosImage from '../assets/images/cheetos.png';
-import bolsasCamisetaImage from '../assets/images/camiseta.png';
-import palillosChinosImage from '../assets/images/palillos.png';
-import harinaImage from '../assets/images/harina.png';
+const tenedoresImage = null;
+const vasitosImage = null;
+const charolasPlanasImage = null;
+const charolas3DivisionesImage = null;
+const guantesImage = null;
+const bolsasMakiImage = null;
+const cheetosImage = null;
+const bolsasCamisetaImage = null;
+const palillosChinosImage = null;
+const harinaImage = null;
 
 const initialInventoryItems = [
   {

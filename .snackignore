@@ -1,0 +1,6 @@
+metro.config.js
+ryu-admin/
+backup-imagenes/
+.expo/
+node_modules/
+.git/

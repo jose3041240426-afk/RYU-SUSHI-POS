@@ -11,7 +11,7 @@ import {
   ImageBackground,
   Platform
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { FontAwesome as Icon } from '@expo/vector-icons';
 
 const screenWidth = Dimensions.get('window').width;
 const isWeb = Platform.OS === 'web';
