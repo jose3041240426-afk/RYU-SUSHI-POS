@@ -1,4 +1,4 @@
-import { Platform, Alert, View, ActivityIndicator, StyleSheet } from 'react-native';
+import { Platform, Alert, View, ActivityIndicator, StyleSheet, Share } from 'react-native';
 import { WebView } from 'react-native-webview';
 import React, { useRef, useState, useEffect } from 'react';
 
@@ -413,6 +413,55 @@ const styles = StyleSheet.create({
   },
 });
 
+// Helper to convert HTML tickets and reports into beautiful plain-text for sharing fallback
+const convertHtmlToPlainText = (html) => {
+  if (!html) return '';
+  let text = html;
+  
+  // Clean header/styles
+  text = text.replace(/<style>[\s\S]*?<\/style>/gi, '');
+  text = text.replace(/<head>[\s\S]*?<\/head>/gi, '');
+  
+  // Convert basic elements
+  text = text.replace(/<div class="divider"><\/div>/g, '\n--------------------------------\n');
+  text = text.replace(/<div class="header">(.*?)<\/div>/g, '\n=== $1 ===\n');
+  text = text.replace(/<div class="info">(.*?)<\/div>/g, '$1\n');
+  
+  // Convert tables (e.g. for sales reports)
+  text = text.replace(/<tr>([\s\S]*?)<\/tr>/g, (match, content) => {
+    const cells = [];
+    const cellRegex = /<t[dh][^>]*>([\s\S]*?)<\/t[dh]>/gi;
+    let cellMatch;
+    while ((cellMatch = cellRegex.exec(content)) !== null) {
+      cells.push(cellMatch[1].replace(/<[^>]*>/g, '').trim());
+    }
+    return cells.join(' | ') + '\n';
+  });
+
+  // Convert list/flex items
+  text = text.replace(/<div class="item">[\s\S]*?<span>(.*?)<\/span>[\s\S]*?<span>([\s\S]*?)<\/span>[\s\S]*?<\/div>/g, '$1: $2\n');
+  
+  // Convert general divs and classes
+  text = text.replace(/<div class="total".*?>([\s\S]*?)<\/div>/g, '$1\n');
+  text = text.replace(/<div class="payment-info">([\s\S]*?)<\/div>/g, '\n--- MÉTODOS DE PAGO ---\n$1\n');
+  text = text.replace(/<div class="delivery-info">([\s\S]*?)<\/div>/g, '\n--- ENTREGA ---\n$1\n');
+  
+  // Strip remaining HTML tags and clean up HTML character entities
+  text = text.replace(/<[^>]*>/g, '');
+  text = text.replace(/&nbsp;/g, ' ');
+  text = text.replace(/&aacute;/g, 'á');
+  text = text.replace(/&eacute;/g, 'é');
+  text = text.replace(/&iacute;/g, 'í');
+  text = text.replace(/&oacute;/g, 'ó');
+  text = text.replace(/&uacute;/g, 'ú');
+  text = text.replace(/&Ntilde;/g, 'Ñ');
+  text = text.replace(/&ntilde;/g, 'ñ');
+  
+  // Clean double line breaks
+  text = text.replace(/\n\s*\n/g, '\n');
+  return text.trim();
+};
+
 // Función para exportar el PDF
 export const exportToPDF = async (html, fileName) => {
   try {
@@ -438,10 +487,30 @@ export const exportToPDF = async (html, fileName) => {
 
   } catch (error) {
     console.error('Error al exportar PDF:', error);
+    
+    // Fallback: Convert to beautiful plain text and trigger native sharing
+    const plainTextTicket = convertHtmlToPlainText(html);
+    
     Alert.alert(
-      'Error',
-      'No se pudo generar el PDF. Por favor, intente nuevamente.',
-      [{ text: 'OK' }]
+      'Aviso de Compatibilidad',
+      'No se pudo generar el archivo PDF en este entorno. ¿Deseas compartir el ticket como texto para imprimirlo o enviarlo con otra aplicación?',
+      [
+        { text: 'Cancelar', style: 'cancel' },
+        { 
+          text: 'Compartir Texto', 
+          onPress: async () => {
+            try {
+              await Share.share({
+                message: plainTextTicket,
+                title: 'Compartir Ticket'
+              });
+            } catch (shareError) {
+              console.error('Error al compartir texto:', shareError);
+              Alert.alert('Error', 'No se pudo compartir el ticket.');
+            }
+          }
+        }
+      ]
     );
   }
 };
