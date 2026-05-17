@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Text, View, FlatList, TouchableOpacity, ScrollView, StyleSheet, Dimensions, ImageBackground, Modal, Platform } from 'react-native';
 
 
@@ -10,7 +10,7 @@ const wingsItems = [
     price: 100,
     type: 'Alitas',
     subtype: 'completa',
-    image: require('../assets/images/adobadas.jpg'),
+    image: null,
     flavor: 'Natural',
     description: 'Alitas Naturales - Orden completa'
   },
@@ -20,19 +20,19 @@ const wingsItems = [
     price: 105,
     type: 'Alitas',
     subtype: 'completa',
-    image: require('../assets/images/alitas.jpeg'),
+    image: null,
     flavor: 'BBQ',
     description: 'Alitas BBQ - Orden completa'
   },
   {
     id: '3',
-    name: 'Wings Búfalo',
+    name: 'Wings BÃºfalo',
     price: 105,
     type: 'Alitas',
     subtype: 'completa',
-    image: require('../assets/images/Bufalo.jpg'),
-    flavor: 'Búfalo',
-    description: 'Alitas Búfalo - Orden completa'
+    image: null,
+    flavor: 'BÃºfalo',
+    description: 'Alitas BÃºfalo - Orden completa'
   },
   {
     id: '4',
@@ -40,7 +40,7 @@ const wingsItems = [
     price: 110,
     type: 'Alitas',
     subtype: 'completa',
-    image: require('../assets/images/alitas.jpeg'),
+    image: null,
     flavor: 'Mango Habanero',
     description: 'Alitas Mango Habanero - Orden completa'
   },
@@ -50,9 +50,9 @@ const wingsItems = [
     price: 120,
     type: 'Alitas',
     subtype: 'completa',
-    image: require('../assets/images/alitas.jpeg'),
+    image: null,
     flavor: 'Infierno',
-    description: 'Alitas Infierno - Orden completa (¡MUY PICANTE!)'
+    description: 'Alitas Infierno - Orden completa (Â¡MUY PICANTE!)'
   },
 
 
@@ -63,7 +63,7 @@ const wingsItems = [
     price: 130,
     type: 'Boneless',
     subtype: 'completa',
-    image: require('../assets/images/boneless-adobados.jpg'),
+    image: null,
     flavor: 'Natural',
     description: 'Boneless Natural - Orden completa'
   },
@@ -73,19 +73,19 @@ const wingsItems = [
     price: 135,
     type: 'Boneless',
     subtype: 'completa',
-    image: require('../assets/images/Boneless-BBQ.jpg'),
+    image: null,
     flavor: 'BBQ',
     description: 'Boneless BBQ - Orden completa'
   },
   {
     id: '11',
-    name: 'Boneless Búfalo',
+    name: 'Boneless BÃºfalo',
     price: 135,
     type: 'Boneless',
     subtype: 'completa',
-    image: require('../assets/images/Boneless-Bufalo.jpg'),
-    flavor: 'Búfalo',
-    description: 'Boneless Búfalo - Orden completa'
+    image: null,
+    flavor: 'BÃºfalo',
+    description: 'Boneless BÃºfalo - Orden completa'
   },
   {
     id: '12',
@@ -93,7 +93,7 @@ const wingsItems = [
     price: 140,
     type: 'Boneless',
     subtype: 'completa',
-    image: require('../assets/images/Boneless-Mango.jpg'),
+    image: null,
     flavor: 'Mango Habanero',
     description: 'Boneless Mango Habanero - Orden completa'
   },
@@ -103,9 +103,9 @@ const wingsItems = [
     price: 150,
     type: 'Boneless',
     subtype: 'completa',
-    image: require('../assets/images/boneless-adobados.jpg'),
+    image: null,
     flavor: 'Infierno',
-    description: 'Boneless Infierno - Orden completa (¡MUY PICANTE!)'
+    description: 'Boneless Infierno - Orden completa (Â¡MUY PICANTE!)'
   },
 
 
@@ -116,7 +116,7 @@ const wingsItems = [
     price: 250,
     type: 'Boneless',
     subtype: 'kilo',
-    image: require('../assets/images/boneless-adobados.jpg'),
+    image: null,
     flavor: 'Natural',
     description: 'Boneless Natural - Por kilo'
   },
@@ -126,19 +126,19 @@ const wingsItems = [
     price: 250,
     type: 'Boneless',
     subtype: 'kilo',
-    image: require('../assets/images/Boneless-BBQ.jpg'),
+    image: null,
     flavor: 'BBQ',
     description: 'Boneless BBQ - Por kilo'
   },
   {
     id: '19',
-    name: 'Kilo Boneless Búfalo',
+    name: 'Kilo Boneless BÃºfalo',
     price: 250,
     type: 'Boneless',
     subtype: 'kilo',
-    image: require('../assets/images/Boneless-Bufalo.jpg'),
-    flavor: 'Búfalo',
-    description: 'Boneless Búfalo - Por kilo'
+    image: null,
+    flavor: 'BÃºfalo',
+    description: 'Boneless BÃºfalo - Por kilo'
   },
   {
     id: '20',
@@ -146,7 +146,7 @@ const wingsItems = [
     price: 250,
     type: 'Boneless',
     subtype: 'kilo',
-    image: require('../assets/images/Boneless-Mango.jpg'),
+    image: null,
     flavor: 'Mango Habanero',
     description: 'Boneless Mango Habanero - Por kilo'
   },
@@ -156,9 +156,9 @@ const wingsItems = [
     price: 250,
     type: 'Boneless',
     subtype: 'kilo',
-    image: require('../assets/images/boneless-adobados.jpg'),
+    image: null,
     flavor: 'Infierno',
-    description: 'Boneless Infierno - Por kilo (¡MUY PICANTE!)'
+    description: 'Boneless Infierno - Por kilo (Â¡MUY PICANTE!)'
   },
 
   // Kilos de Alitas - $200
@@ -168,7 +168,7 @@ const wingsItems = [
     price: 200,
     type: 'Alitas',
     subtype: 'kilo',
-    image: require('../assets/images/adobadas.jpg'),
+    image: null,
     flavor: 'Natural',
     description: 'Alitas Naturales - Por kilo'
   },
@@ -178,19 +178,19 @@ const wingsItems = [
     price: 200,
     type: 'Alitas',
     subtype: 'kilo',
-    image: require('../assets/images/alitas.jpeg'),
+    image: null,
     flavor: 'BBQ',
     description: 'Alitas BBQ - Por kilo'
   },
   {
     id: '23',
-    name: 'Kilo Alitas Búfalo',
+    name: 'Kilo Alitas BÃºfalo',
     price: 200,
     type: 'Alitas',
     subtype: 'kilo',
-    image: require('../assets/images/Bufalo.jpg'),
-    flavor: 'Búfalo',
-    description: 'Alitas Búfalo - Por kilo'
+    image: null,
+    flavor: 'BÃºfalo',
+    description: 'Alitas BÃºfalo - Por kilo'
   },
   {
     id: '24',
@@ -198,7 +198,7 @@ const wingsItems = [
     price: 200,
     type: 'Alitas',
     subtype: 'kilo',
-    image: require('../assets/images/alitas.jpeg'),
+    image: null,
     flavor: 'Mango Habanero',
     description: 'Alitas Mango Habanero - Por kilo'
   },
@@ -208,9 +208,9 @@ const wingsItems = [
     price: 200,
     type: 'Alitas',
     subtype: 'kilo',
-    image: require('../assets/images/alitas.jpeg'),
+    image: null,
     flavor: 'Infierno',
-    description: 'Alitas Infierno - Por kilo (¡MUY PICANTE!)'
+    description: 'Alitas Infierno - Por kilo (Â¡MUY PICANTE!)'
   },
 ];
 
@@ -258,7 +258,7 @@ export default function AlitasScreen({ isDarkMode, addToCurrentOrder, clientId }
   const [selectedSubtype, setSelectedSubtype] = useState('');
   const [selectedFlavors, setSelectedFlavors] = useState([]);
 
-  // Lógica responsiva
+  // LÃ³gica responsiva
   const screenWidth = Dimensions.get('window').width;
   const currentNumColumns = 2; // Siempre 2 columnas
   const currentGap = 10; 
@@ -314,7 +314,7 @@ export default function AlitasScreen({ isDarkMode, addToCurrentOrder, clientId }
       const flavor1 = flavors.find(f => f.flavor === selectedFlavors[0]);
       const flavor2 = flavors.find(f => f.flavor === selectedFlavors[1]);
 
-      // Tomar el precio más alto
+      // Tomar el precio mÃ¡s alto
       const highestPrice = Math.max(flavor1.price, flavor2.price);
 
       // Crear nombre con formato: "Alitas Mango Habanero/BBQ"
@@ -326,7 +326,7 @@ export default function AlitasScreen({ isDarkMode, addToCurrentOrder, clientId }
         name: comboName,
         price: highestPrice,
         clientId: clientId,
-        details: `Combinación: ${selectedFlavors[0]} + ${selectedFlavors[1]} (${selectedSubtype === 'completa' ? 'Orden completa' : 'Kilo'})`
+        details: `CombinaciÃ³n: ${selectedFlavors[0]} + ${selectedFlavors[1]} (${selectedSubtype === 'completa' ? 'Orden completa' : 'Kilo'})`
       });
 
       closeModal();

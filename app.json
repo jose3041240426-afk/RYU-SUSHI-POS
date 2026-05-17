@@ -4,11 +4,9 @@
     "slug": "snack-1472e0f7-dbd9-4ffb-805b-b9fa205f662b",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/LOGO.jpg",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/LOGO.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,7 +15,6 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/LOGO.jpg",
         "backgroundColor": "#ffffff"
       },
       "permissions": [
@@ -30,9 +27,7 @@
       ],
       "package": "com.manuelgs.snack1472e0f7dbd94ffb805bb9fa205f662b"
     },
-    "web": {
-      "favicon": "./assets/LOGO.jpg"
-    },
+    "web": {},
     "sdkVersion": "54.0.0",
     "plugins": [
       "expo-font"

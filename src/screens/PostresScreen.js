@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import {
   Text,
   View,
@@ -22,7 +22,7 @@ const screenWidth = Dimensions.get('window').width;
 const isWeb = Platform.OS === 'web';
 const isMobile = !isWeb;
 
-// Configuración responsive
+// ConfiguraciÃ³n responsive
 const numColumns = 2; // Siempre 2 columnas
 const gap = 10;
 const availableWidth = screenWidth - 30 - (gap * 2);
@@ -33,11 +33,11 @@ const EXTRAS_STORAGE_KEY = '@extras_data';
 
 // Opciones para combos
 const rollOptions = [
-  'Torrelo', 'Vaquero', 'Mar y tierra', 'Camaron', 'Surimi', 'Costeño',
+  'Torrelo', 'Vaquero', 'Mar y tierra', 'Camaron', 'Surimi', 'CosteÃ±o',
   'Vegetariano', 'Gallinazo', 'Res', 'Ryu burro', 'Flamin', 'Goliat', 'Pastor'
 ];
 
-const saborOptions = ['Natural', 'BBQ', 'Búfalo', 'Mango Habanero', 'Infierno'];
+const saborOptions = ['Natural', 'BBQ', 'BÃºfalo', 'Mango Habanero', 'Infierno'];
 
 const bebidaOptions = [
   'Coca-Cola 500ml', 'Jugo del Valle 237ml', 'Sprite 500ml (Vidrio)',
@@ -52,7 +52,7 @@ const combosPredefinidos = [
     basePrice: 100,
     type: 'Combos',
     description: '200gr de BONELESS y 150gr de PAPAS A LA FRANCESA',
-    image: require('../assets/images/Sushi.jpg'),
+    image: null,
     shortName: 'Combo 1',
     options: [
       { type: 'sabor-combinable', label: 'Sabor del Boneless (1 o 2 sabores)', key: 'sabor_boneless', options: saborOptions, maxSelections: 2 }
@@ -64,7 +64,7 @@ const combosPredefinidos = [
     basePrice: 130,
     type: 'Combo',
     description: '1 SUSHI y 150gr de PAPAS A LA FRANCESA',
-    image: require('../assets/images/Sushi.jpg'),
+    image: null,
     shortName: 'Combo 2',
     options: [
       { type: 'rollo', label: 'Tipo de Rollo', key: 'tipo_rollo', options: rollOptions }
@@ -76,7 +76,7 @@ const combosPredefinidos = [
     basePrice: 100,
     type: 'Combo',
     description: '200gr de ALITAS y 150gr de PAPAS A LA FRANCESA',
-    image: require('../assets/images/Sushi.jpg'),
+    image: null,
     shortName: 'Combo 3',
     options: [
       { type: 'sabor-combinable', label: 'Sabor de las Alitas (1 o 2 sabores)', key: 'sabor_alitas', options: saborOptions, maxSelections: 2 }
@@ -88,7 +88,7 @@ const combosPredefinidos = [
     basePrice: 140,
     type: 'Combo',
     description: '200gr de BONELESS y 200gr de ALITAS',
-    image: require('../assets/images/Sushi.jpg'),
+    image: null,
     shortName: 'Combo 4',
     options: [
       {
@@ -107,7 +107,7 @@ const combosPredefinidos = [
     basePrice: 200,
     type: 'Combo',
     description: '200gr de ALITAS, 200gr de BONELESS y 1 SUSHI',
-    image: require('../assets/images/Sushi.jpg'),
+    image: null,
     shortName: 'Combo 5',
     options: [
       {
@@ -127,7 +127,7 @@ const combosPredefinidos = [
     basePrice: 600,
     type: 'Combo',
     description: '3 ROLLOS DE SUSHI, 1 BONELESS, 1 ALITAS, 1 PAPAS Y UN REFRESCO',
-    image: require('../assets/images/Sushi.jpg'),
+    image: null,
     shortName: 'Combo 6',
     options: [
       {
@@ -181,7 +181,7 @@ const SushiCard = ({ item, width, height, onPress, onLongPress, showDeleteButton
       onMouseLeave={() => isWeb && setIsHovered(false)}
     >
       <ImageBackground
-        source={item.imageLocal ? { uri: item.imageLocal } : (item.image || require('../assets/images/postres.jpg'))}
+        source={item.imageLocal ? { uri: item.imageLocal } : (item.image || null)}
         style={styles.cardImage}
         imageStyle={styles.cardImageRadius}
         resizeMode="cover"
@@ -249,7 +249,7 @@ export default function ExtrasScreen({ isDarkMode, addToCurrentOrder, clientId }
   useEffect(() => {
     loadExtras();
     
-    // Suscripción Realtime para Extras
+    // SuscripciÃ³n Realtime para Extras
     const extrasSubscription = supabase
       .channel('public:extras')
       .on('postgres_changes', { event: '*', schema: 'public', table: 'extras' }, payload => {
@@ -270,7 +270,7 @@ export default function ExtrasScreen({ isDarkMode, addToCurrentOrder, clientId }
     if (Platform.OS !== 'web') {
       const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
       if (status !== 'granted') {
-        Alert.alert('Permiso denegado', 'Necesitamos permisos para acceder a la galería');
+        Alert.alert('Permiso denegado', 'Necesitamos permisos para acceder a la galerÃ­a');
       }
     }
   };
@@ -341,7 +341,7 @@ export default function ExtrasScreen({ isDarkMode, addToCurrentOrder, clientId }
         .upsert(payload);
 
       if (error) throw error;
-      loadExtras(); // Recargar para asegurar sincronía
+      loadExtras(); // Recargar para asegurar sincronÃ­a
     } catch (error) {
       console.error('Error guardando extra en Supabase:', error);
       Alert.alert('Error', 'No se pudo guardar en la nube');
@@ -366,8 +366,8 @@ export default function ExtrasScreen({ isDarkMode, addToCurrentOrder, clientId }
 
   const handleDeleteExtra = (extraId) => {
     Alert.alert(
-      'Confirmar eliminación',
-      '¿Estás seguro de que quieres eliminar este extra?',
+      'Confirmar eliminaciÃ³n',
+      'Â¿EstÃ¡s seguro de que quieres eliminar este extra?',
       [
         { text: 'Cancelar', style: 'cancel' },
         {
@@ -401,7 +401,7 @@ export default function ExtrasScreen({ isDarkMode, addToCurrentOrder, clientId }
 
     Alert.alert(
       'Confirmar reinicio',
-      '¿Estás seguro de que quieres eliminar TODOS los extras personalizados? Esta acción no se puede deshacer.',
+      'Â¿EstÃ¡s seguro de que quieres eliminar TODOS los extras personalizados? Esta acciÃ³n no se puede deshacer.',
       [
         { text: 'Cancelar', style: 'cancel' },
         {
@@ -411,7 +411,7 @@ export default function ExtrasScreen({ isDarkMode, addToCurrentOrder, clientId }
             try {
               await AsyncStorage.removeItem(EXTRAS_STORAGE_KEY);
               setExtras([]);
-              Alert.alert('Éxito', 'Todos los extras han sido eliminados');
+              Alert.alert('Ã‰xito', 'Todos los extras han sido eliminados');
             } catch (error) {
               console.error('Error al reiniciar extras:', error);
               Alert.alert('Error', 'No se pudieron eliminar los extras');
@@ -430,7 +430,7 @@ export default function ExtrasScreen({ isDarkMode, addToCurrentOrder, clientId }
 
     const precio = parseFloat(precioExtra);
     if (isNaN(precio)) {
-      Alert.alert('Error', 'El precio debe ser un número válido');
+      Alert.alert('Error', 'El precio debe ser un nÃºmero vÃ¡lido');
       return;
     }
 
@@ -493,7 +493,7 @@ export default function ExtrasScreen({ isDarkMode, addToCurrentOrder, clientId }
               newArr.splice(idx, 1);
               return { ...prev, [key]: newArr };
             } else {
-              Alert.alert('Límite alcanzado', `Solo puedes seleccionar ${limit} rollos. Toca uno seleccionado para quitarlo.`);
+              Alert.alert('LÃ­mite alcanzado', `Solo puedes seleccionar ${limit} rollos. Toca uno seleccionado para quitarlo.`);
               return prev;
             }
           }
@@ -509,7 +509,7 @@ export default function ExtrasScreen({ isDarkMode, addToCurrentOrder, clientId }
           // Seleccionar
           if (current.length >= limit) {
             const itemName = maxSelections ? 'sabores' : 'rollos';
-            Alert.alert('Límite alcanzado', `Solo puedes seleccionar ${limit} ${itemName}`);
+            Alert.alert('LÃ­mite alcanzado', `Solo puedes seleccionar ${limit} ${itemName}`);
             return prev;
           }
           return {
@@ -780,7 +780,7 @@ export default function ExtrasScreen({ isDarkMode, addToCurrentOrder, clientId }
   const handleComboConfirm = () => {
     if (!selectedCombo) return;
 
-    // Verificar que todas las opciones requeridas estén seleccionadas
+    // Verificar que todas las opciones requeridas estÃ©n seleccionadas
     if (selectedCombo.options && selectedCombo.options[0]) {
       const option = selectedCombo.options[0];
 
@@ -788,13 +788,13 @@ export default function ExtrasScreen({ isDarkMode, addToCurrentOrder, clientId }
       if (option.type === 'sabor-combinable') {
         const selectedFlavors = selections[option.key] || [];
         if (selectedFlavors.length === 0) {
-          Alert.alert('Selección incompleta', `Debes seleccionar al menos 1 sabor`);
+          Alert.alert('SelecciÃ³n incompleta', `Debes seleccionar al menos 1 sabor`);
           return;
         }
       } else if (option.type === 'multiple-select') {
         const selectedRolls = selections[option.key] || [];
         if (selectedRolls.length !== option.maxSelections) {
-          Alert.alert('Selección incompleta', `Debes seleccionar exactamente ${option.maxSelections} rollos`);
+          Alert.alert('SelecciÃ³n incompleta', `Debes seleccionar exactamente ${option.maxSelections} rollos`);
           return;
         }
       } else if (option.type === 'multiple-sabor-combinable' || option.type === 'multiple-combinable' ||
@@ -807,18 +807,18 @@ export default function ExtrasScreen({ isDarkMode, addToCurrentOrder, clientId }
             // Para campos con repeticion, verificar que se seleccionaron exactamente maxSelections
             const selectedItems = selections[opt.key] || [];
             if (selectedItems.length !== opt.maxSelections) {
-              Alert.alert('Selección incompleta', `Debes seleccionar exactamente ${opt.maxSelections} rollos de sushi`);
+              Alert.alert('SelecciÃ³n incompleta', `Debes seleccionar exactamente ${opt.maxSelections} rollos de sushi`);
               return;
             }
           } else if (isCombinable) {
             const selectedItems = selections[opt.key] || [];
             if (selectedItems.length === 0) {
-              Alert.alert('Selección incompleta', `Debes seleccionar al menos 1 opción para ${opt.label.toLowerCase()}`);
+              Alert.alert('SelecciÃ³n incompleta', `Debes seleccionar al menos 1 opciÃ³n para ${opt.label.toLowerCase()}`);
               return;
             }
           } else {
             if (!selections[opt.key]) {
-              Alert.alert('Selección incompleta', `Debes seleccionar ${opt.label.toLowerCase()}`);
+              Alert.alert('SelecciÃ³n incompleta', `Debes seleccionar ${opt.label.toLowerCase()}`);
               return;
             }
           }
@@ -826,12 +826,12 @@ export default function ExtrasScreen({ isDarkMode, addToCurrentOrder, clientId }
       } else if (option.type === 'multiple' || option.type === 'multiple-sabor' || option.type === 'multiple-complex') {
         for (const opt of option.options) {
           if (!selections[opt.key]) {
-            Alert.alert('Selección incompleta', `Debes seleccionar ${opt.label.toLowerCase()}`);
+            Alert.alert('SelecciÃ³n incompleta', `Debes seleccionar ${opt.label.toLowerCase()}`);
             return;
           }
         }
       } else if (!selections[option.key]) {
-        Alert.alert('Selección incompleta', `Debes seleccionar ${option.label.toLowerCase()}`);
+        Alert.alert('SelecciÃ³n incompleta', `Debes seleccionar ${option.label.toLowerCase()}`);
         return;
       }
     }
@@ -839,7 +839,7 @@ export default function ExtrasScreen({ isDarkMode, addToCurrentOrder, clientId }
     // Generar nombre para mostrar
     const displayName = generateComboDisplayName(selectedCombo, selections);
 
-    // Crear descripción detallada para details
+    // Crear descripciÃ³n detallada para details
     let details = selectedCombo.description;
     if (selectedCombo.options && Object.keys(selections).length > 0) {
       details += ' | Personalizado: ';
@@ -931,7 +931,7 @@ export default function ExtrasScreen({ isDarkMode, addToCurrentOrder, clientId }
           </View>
         </View>
 
-        {/* Sección de COMBOS */}
+        {/* SecciÃ³n de COMBOS */}
         <Text style={[styles.sectionHeader, isDarkMode && styles.darkSectionHeader]}>COMBOS ESPECIALES</Text>
         <View style={styles.grid}>
           {combosPredefinidos.map((item) => (
@@ -941,7 +941,7 @@ export default function ExtrasScreen({ isDarkMode, addToCurrentOrder, clientId }
           ))}
         </View>
 
-        {/* Sección de EXTRAS PERSONALIZADOS */}
+        {/* SecciÃ³n de EXTRAS PERSONALIZADOS */}
         {extras.length > 0 && (
           <>
             <View style={styles.extrasHeader}>

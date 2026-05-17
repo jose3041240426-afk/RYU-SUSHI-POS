@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+﻿import React, { useEffect, useRef } from 'react';
 import { View, Animated, StyleSheet, Image, Dimensions, Platform } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
@@ -10,7 +10,7 @@ const SplashScreen = ({ navigation }) => {
   const sushiRotate = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    // Animación del sushi (independiente, en loop)
+    // AnimaciÃ³n del sushi (independiente, en loop)
     Animated.loop(
       Animated.timing(sushiRotate, {
         toValue: 1,
@@ -19,7 +19,7 @@ const SplashScreen = ({ navigation }) => {
       })
     ).start();
 
-    // Secuencia principal de navegación
+    // Secuencia principal de navegaciÃ³n
     const timer = setTimeout(() => {
       Animated.sequence([
         // 1. Aparecer logo
@@ -37,7 +37,7 @@ const SplashScreen = ({ navigation }) => {
           }),
         ]),
         
-        // 2. Pequeña pausa
+        // 2. PequeÃ±a pausa
         Animated.delay(200),
         
         // 3. Barra de carga
@@ -47,7 +47,7 @@ const SplashScreen = ({ navigation }) => {
           useNativeDriver: false,
         }),
       ]).start(() => {
-        // Navegar después de completar
+        // Navegar despuÃ©s de completar
         setTimeout(() => {
           navigation.replace('MainTabs');
         }, 300);
@@ -67,7 +67,7 @@ const SplashScreen = ({ navigation }) => {
       {/* Overlay gradiente */}
       <View style={styles.gradientOverlay} />
       
-      {/* Logo con animación */}
+      {/* Logo con animaciÃ³n */}
       <Animated.View
         style={[
           styles.logoContainer,
@@ -79,7 +79,7 @@ const SplashScreen = ({ navigation }) => {
       >
         <View style={styles.logoShadow} />
         <Image 
-          source={require('../../assets/LOGO.jpg')} 
+          source={null} 
           style={styles.logo}
           resizeMode="contain"
         />
@@ -124,7 +124,7 @@ const SplashScreen = ({ navigation }) => {
 
         {/* Barra de fondo (plato) */}
         <View style={styles.loadingBarBackground}>
-          {/* Patrón de bambú decorativo */}
+          {/* PatrÃ³n de bambÃº decorativo */}
           <View style={styles.bambooPattern}>
             {[...Array(8)].map((_, i) => (
               <View key={i} style={styles.bambooLine} />

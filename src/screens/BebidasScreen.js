@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Text, View, FlatList, TouchableOpacity, ScrollView, StyleSheet, Dimensions, ImageBackground, Platform } from 'react-native';
 
 const screenWidth = Dimensions.get('window').width;
 const isWeb = Platform.OS === 'web';
 const isMobile = !isWeb;
 
-// Configuración responsive
+// ConfiguraciÃ³n responsive
 const numColumns = 2; // Siempre 2 columnas
 const gap = 10;
 const availableWidth = screenWidth - 30 - (gap * 2);
@@ -18,35 +18,35 @@ const drinksItems = [
     name: 'Coca-Cola 500ml',
     price: 20,
     type: 'Refresco',
-    image: require('../assets/images/coca.jpg')
+    image: null
   },
   {
     id: '2',
     name: 'Jugo del Valle 237ml',
     price: 10,
     type: 'Jugo',
-    image: require('../assets/images/vall.jpg')
+    image: null
   },
   {
     id: '3',
     name: 'Sprite 500ml (Vidrio)',
     price: 25,
     type: 'Refresco',
-    image: require('../assets/images/sprite.jpg')
+    image: null
   },
   {
     id: '4',
     name: 'Agua de Jamaica',
     price: 15,
     type: 'Agua Fresca',
-    image: require('../assets/images/Jamaica.jpg')
+    image: null
   },
   {
     id: '5',
     name: 'Agua de Horchata',
     price: 15,
     type: 'Agua Fresca',
-    image: require('../assets/images/horchata.webp')
+    image: null
   }
 ];
 
